@@ -1,0 +1,136 @@
+import React, { useContext, useState } from 'react';
+import { Context } from '../main';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import axios from 'axios';
+
+const APIUrl = "http://localhost:8000";
+
+const Register = () => {
+  const { isAuthenticated, setIsAuthenticated } = useContext(Context);
+
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [gender, setGender] = useState("");
+  const [nic, setNic] = useState("");
+  const [dob, setDob] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    try {
+       const response= await axios.post(
+        `${APIUrl}/api/v1/user/register`,
+        { firstName, lastName, email, phone, gender, nic, dob, password, role: "Patient" },
+        {
+          withCredentials: true,
+          headers:{"Content-Type": "application/json"},
+        }
+      )
+        toast.success(response.data.message);
+        setIsAuthenticated(true);
+        navigate("/")
+        // setEmail("");
+        // setPassword("")
+        // setConfirmPassword("");
+      
+    } catch (error) {
+      console.log(error);
+      toast.error(error.response.data.message)
+    }
+  }
+
+  if (isAuthenticated) {
+      return <Navigate to={"/"}/>
+  }
+  return (
+    <>
+      <div className="container form-component register-form">
+        <h2>Sign Up</h2>
+        <p>Please Sign Up To Continue..</p>
+        <p>Welcome to the Hospital Management System. Please enter your credentials to access your account</p>
+        <form onSubmit={handleRegister}>
+          <div>
+            <input
+              type='text'
+              placeholder='First Name*'
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)} 
+              />
+            <input
+              type='text'
+              placeholder='Last Name*'
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              />
+          </div>
+          <div>
+            <input
+              type='text'
+              placeholder='Email*'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)} 
+              />
+            <input
+              type='number'
+              placeholder='Phone No.*'
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              />
+          </div>
+          <div>
+            <input
+              type='nimber'
+              placeholder='NIC*'
+              value={nic}
+              onChange={(e) => setNic(e.target.value)} 
+              />
+            <input
+              type='date'
+              placeholder='Date Of Birth*'
+              value={dob}
+              onChange={(e) => setDob(e.target.value)}
+              />
+          </div>
+          <div>
+            <select value={gender} onChange={(e) => setGender(e.target.value)}>
+              <option value="">Select Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+            <input
+              type='password'
+              placeholder='Password*'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              />
+          </div>
+          <div
+            style={{
+              gap: "10px",
+              justifyContent: "center",
+              flexDirection: "row",
+            }}
+          >
+            <p style={{ marginBottom: 0 }}>Already Registered?</p>
+            <Link
+              to={"/login"}
+              style={{ textDecoration: "none", color: "#271776ca" }}
+            >
+              Login Now
+            </Link>
+          </div>
+          <div style={{ justifyContent: "center", alignItems: "center" }}>
+            <button type="submit">Register</button>
+          </div>
+        </form>
+    </div>
+    </>
+  )
+}
+
+export default Register;
