@@ -13,13 +13,13 @@ import morgan from 'morgan';
 const app = express();
 config({ path: "./config/config.env" })
 
-app.use(
-    cors({
-        origin: [process.env.REACT_APP_URL, process.env.DASHBOARD_URL],
-        methods: ["GET", "POST", "PUT", "DELETE"],
-        credentials: true,
-    })
-)
+// app.use(
+//     cors({
+//         origin: [process.env.REACT_APP_URL, process.env.DASHBOARD_URL],
+//         methods: ["GET", "POST", "PUT", "DELETE"],
+//         credentials: true,
+//     })
+// )
 
 app.use(morgan('dev'));
 app.use(cookieParser());
