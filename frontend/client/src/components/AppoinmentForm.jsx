@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
-const APIUrl = "http://localhost:8000";
+const APIUrl = "https://hospital-management8979.vercel.app/";
 
 const AppoinmentForm = () => {
   const [firstName, setFirstName] = useState("");

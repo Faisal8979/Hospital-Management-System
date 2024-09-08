@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Navigate } from 'react-router-dom';
 
 
-const APIUrl = "http://localhost:8000";
+const APIUrl = "https://hospital-management8979.vercel.app/";
 
 const Messages = () => {
   const [messages, setMessages] = useState([]);
