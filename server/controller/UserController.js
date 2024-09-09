@@ -4,7 +4,7 @@ import { User } from '../models/UserSchema.js';
 import { generateToken } from "../utils/jwtToken.js";
 import cloudinary from 'cloudinary';
 
-export const patientRegister = catchAsyncErrors(async (req, res, next) => {
+export const patientRegisterController = catchAsyncErrors(async (req, res, next) => {
     const { firstName, lastName, email, phone, nic, dob, gender, password, role } = req.body;
     if (
         !firstName ||
@@ -41,7 +41,7 @@ export const patientRegister = catchAsyncErrors(async (req, res, next) => {
     // })
 })
 
-export const login = catchAsyncErrors(async (req, res, next) => {
+export const loginController = catchAsyncErrors(async (req, res, next) => {
     const { email, password, confirmPassword, role } = req.body;
 
     if (!email || !password || !confirmPassword || !role) {
@@ -68,7 +68,7 @@ export const login = catchAsyncErrors(async (req, res, next) => {
     // })
 })
 
-export const addNewAdmin = catchAsyncErrors(async (req, res, next) => {
+export const addNewAdminController = catchAsyncErrors(async (req, res, next) => {
         const { firstName, lastName, email, phone, nic, dob, gender, password } = req.body;
     if (
         !firstName ||
@@ -104,7 +104,7 @@ export const addNewAdmin = catchAsyncErrors(async (req, res, next) => {
     })
 })
 
-export const getAllDoctors = catchAsyncErrors(async (req, res, next) => {
+export const getAllDoctorsController = catchAsyncErrors(async (req, res, next) => {
     const doctors = await User.find({ role: "Doctor" });
     res.status(200).send({
         success: true,
@@ -112,7 +112,7 @@ export const getAllDoctors = catchAsyncErrors(async (req, res, next) => {
     })
 });
 
-export const getUserDetails = catchAsyncErrors(async (req, res, next) => {
+export const getUserDetailsController = catchAsyncErrors(async (req, res, next) => {
     const user = req.user;
     res.status(200).send({
         success: true,
@@ -120,7 +120,7 @@ export const getUserDetails = catchAsyncErrors(async (req, res, next) => {
     })
 })
 
-export const logoutAdmin = catchAsyncErrors(async (req, res, next) => {
+export const logoutAdminController = catchAsyncErrors(async (req, res, next) => {
     res.status(200)
         .cookie("adminToken", " ", {
             httpOnly: true,
@@ -132,7 +132,7 @@ export const logoutAdmin = catchAsyncErrors(async (req, res, next) => {
     })
 })
 
-export const logoutPatient = catchAsyncErrors(async (req, res, next) => {
+export const logoutPatientController = catchAsyncErrors(async (req, res, next) => {
     res.status(200)
         .cookie("patientToken", " ", {
             httpOnly: true,
@@ -144,7 +144,7 @@ export const logoutPatient = catchAsyncErrors(async (req, res, next) => {
         })
 });
 
-export const addNewDoctor = catchAsyncErrors(async (req, res, next) => {
+export const addNewDoctorController = catchAsyncErrors(async (req, res, next) => {
     if (!req.files || Object.keys(req.files).length === 0) {
         return next(new ErrorHandler("Doctor Avtar Required", 400))
     }

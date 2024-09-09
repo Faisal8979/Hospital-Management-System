@@ -1,25 +1,34 @@
 import express from 'express';
-import { addNewAdmin, addNewDoctor, getAllDoctors, getUserDetails, login, logoutAdmin, logoutPatient, patientRegister } from '../controller/UserController.js';
+import {
+    addNewAdminController,
+    addNewDoctorController,
+    getAllDoctorsController,
+    getUserDetailsController,
+    loginController,
+    logoutAdminController,
+    logoutPatientController,
+    patientRegisterController
+} from '../controller/UserController.js';
 import {isAdminAuthenticated, isPatientAuthenticated } from '../middlewere/auth.js';
 
 const router = express.Router();
 
-router.post("/register", patientRegister);
+router.post("/register", patientRegisterController);
 
-router.post("/login", login);
+router.post("/login", loginController);
 
-router.post("/admin/add-new", isAdminAuthenticated, addNewAdmin);
+router.post("/admin/add-new", isAdminAuthenticated, addNewAdminController);
 
-router.get("/doctors", getAllDoctors);
+router.get("/doctors", getAllDoctorsController);
 
-router.get("/admin/me", isAdminAuthenticated, getUserDetails)
+router.get("/admin/me", isAdminAuthenticated, getUserDetailsController)
 
 router.get("/patient/me", isPatientAuthenticated, getUserDetails);
 
-router.get("/admin/logout", isAdminAuthenticated, logoutAdmin);
+router.get("/admin/logout", isAdminAuthenticated, logoutAdminController);
 
-router.get("/patient/logout", isPatientAuthenticated, logoutPatient);
+router.get("/patient/logout", isPatientAuthenticated, logoutPatientController);
 
-router.post("/doctor/addnew", isAdminAuthenticated, addNewDoctor)
+router.post("/doctor/addnew", isAdminAuthenticated, addNewDoctorController)
 
 export default router;
