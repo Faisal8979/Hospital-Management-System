@@ -34,6 +34,10 @@ app.use("/api/v1/user", UserRouter);
 app.use("/api/v1/appointment", AppointmentRouter);
 dbConnection();
 
+app.get("/", (req, res) => {
+    res.send("<h1>Hello!!</h1>")
+})
+
 app.use(errorMiddlewere);
 
 export default app;
