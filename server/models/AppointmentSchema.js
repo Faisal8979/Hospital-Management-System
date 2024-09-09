@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import validator from "validator";
 
-const AppointmentSchema = new mongoose.Schema({
+const appointmentSchema = new mongoose.Schema({
       firstName: {
         type: String,
         required: true,
@@ -79,4 +79,4 @@ const AppointmentSchema = new mongoose.Schema({
     }
 })
 
-export const Appointment = mongoose.model("Appointment", AppointmentSchema)
+export const Appointment = mongoose.model("Appointment", appointmentSchema)

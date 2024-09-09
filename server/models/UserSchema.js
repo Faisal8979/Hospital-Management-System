@@ -3,7 +3,7 @@ import validator from "validator";
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
-const UserSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
     firstName: {
         type: String,
         required: true,
@@ -61,21 +61,21 @@ const UserSchema = new mongoose.Schema({
 })
 
 
-UserSchema.pre("save", async function (next) {
+userSchema.pre("save", async function (next) {
     if (!this.isModified("password")) {
         next();
     }
     this.password = await bcrypt.hash(this.password, 10)
 })
-UserSchema.methods.comparePassword = async function (enterdPassword) {
+userSchema.methods.comparePassword = async function (enterdPassword) {
    return await bcrypt.compare(enterdPassword, this.password)
 };
 
 
-UserSchema.methods.generateJsonWebToken = function () {
+userSchema.methods.generateJsonWebToken = function () {
     return jwt.sign({ id: this._id }, process.env.JWT_SECRET_KEY, {
         expiresIn: process.env.JWT_EXPIRES,
     })
 }
 
-export const User = mongoose.model("User", UserSchema);
+export const User = mongoose.model("User", userSchema);
