@@ -1,4 +1,4 @@
-import app from "./index.js";
+import app from "./app.js";
 const port = process.env.PORT || 8000;
 import cloudinary from 'cloudinary';
 
