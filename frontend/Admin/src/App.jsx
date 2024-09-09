@@ -18,7 +18,7 @@ import { Context } from './Main';
 import axios from 'axios';
 
 
-const APIUrl = "http://localhost:8000";
+const APIUrl = "https://hospital-management-backend-six.vercel.app/";
 
 const App = () => {
 

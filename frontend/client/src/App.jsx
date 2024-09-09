@@ -17,7 +17,7 @@ import { Context } from './Main';
 import axios from 'axios';
 import Footer from './components/Footer';
 
-const APIUrl = "http://localhost:8000";
+const APIUrl = "https://hospital-management-backend-six.vercel.app/";
 
 const App = () => {
   const { isAuthenticated, setIsAuthenticated, setUser } = useContext(Context);
