@@ -14,7 +14,7 @@ import AddNewAdmin from './components/AddNewAdmin';
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import './App.css';
-import { Context } from './Main.jsx';
+import { Context } from './main.jsx';
 import axios from 'axios';
 
 
