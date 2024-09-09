@@ -7,7 +7,7 @@ const Appointment = () => {
   return (
     
     <>
-      <Hero title={"Schedule Your Appointment | LifeCare Hospital"} imageUrl={"/docapp.png"} />
+      <Hero title={"Schedule Your Appointment | LifeCare Hospital"} imageUrl={"/appointment.png"} />
       <AppoinmentForm/>
     </>
   )
