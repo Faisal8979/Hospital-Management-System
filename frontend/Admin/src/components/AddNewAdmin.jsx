@@ -4,7 +4,7 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 
-const APIUrl = "https://hospital-management8979.vercel.app/";
+const APIUrl = "https://hospital-management-backend-six.vercel.app/";
 
 const AddNewAdmin = () => {
   const [firstName, setFirstName] = useState("");
