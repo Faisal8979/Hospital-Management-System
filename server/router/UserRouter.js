@@ -8,7 +8,7 @@ import {
     logoutAdminController,
     logoutPatientController,
     patientRegisterController
-} from '../controller/UserController.js';
+} from '../controller/userController.js';
 import {isAdminAuthenticated, isPatientAuthenticated } from '../middlewere/auth.js';
 
 const router = express.Router();

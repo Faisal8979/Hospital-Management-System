@@ -4,10 +4,10 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import fileUpload from 'express-fileupload';
 import { dbConnection } from './database/dbConnection.js';
-import MessageRouter from "./router/MessageRouter.js";
+import MessageRouter from "./router/messageRouter.js";
 import { errorMiddlewere } from './middlewere/errorMiddlewere.js';
-import UserRouter from './router/UserRouter.js';
-import AppointmentRouter from './router/AppointmentRouter.js';
+import UserRouter from './router/userRouter.js';
+import AppointmentRouter from './router/appointmentRouter.js';
 import morgan from 'morgan';
  
 const app = express();

@@ -1,7 +1,7 @@
 import { catchAsyncErrors } from "../middlewere/catchAsyncErrors.js";
 import ErrorHandler from "../middlewere/errorMiddlewere.js";
-import { User } from "../models/UserSchema.js";
-import {Appointment } from "../models/AppointmentSchema.js";
+import { User } from "../models/userSchema.js";
+import {Appointment } from "../models/appointmentSchema.js";
 
 export const postAppointment = catchAsyncErrors(async (req, res, next) => {
     const {
