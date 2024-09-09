@@ -13,7 +13,7 @@ import Login from "./pages/Login";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar from './components/Navbar';
-import { Context } from './main';
+import { Context } from './Main';
 import axios from 'axios';
 import Footer from './components/Footer';
 
