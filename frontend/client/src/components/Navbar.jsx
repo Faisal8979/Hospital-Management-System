@@ -5,7 +5,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { GiHamburgerMenu } from "react-icons/gi";
 
-const APIUrl = "https://hospital-management8979.vercel.app/";
+const APIUrl = "https://hospital-management-backend-six.vercel.app/";
 
 const Navbar = () => {
     const [show, setShow] = useState(false);

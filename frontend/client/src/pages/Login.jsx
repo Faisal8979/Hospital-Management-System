@@ -4,7 +4,7 @@ import { Link, Navigate, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
-const APIUrl = "http://localhost:8000";
+const APIUrl = "https://hospital-management-backend-six.vercel.app/";
 
 const Login = () => {
   const { isAuthenticated, setIsAuthenticated } = useContext(Context);
