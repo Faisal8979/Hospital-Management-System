@@ -22,17 +22,17 @@ const APIUrl = "https://hospital-management-backend-7n0m.onrender.com/";
 
 const App = () => {
 
-  const { isAuthenticated, setIsAuthenticated, user, setUser } = useContext(Context);
+  const { isAuthenticated, setIsAuthenticated, admin, setAdmin } = useContext(Context);
   
     useEffect(() => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(`${APIUrl}/api/v1/user/admin/me`, { withCredentials: true });
         setIsAuthenticated(true);
-        setUser(response.data.user);
+        setAdmin(response.data.user);
       } catch (error) {
         setIsAuthenticated(false);
-        setUser({});
+        setAdmin({});
       }
     }
     fetchUser();
