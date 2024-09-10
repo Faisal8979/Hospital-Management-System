@@ -19,7 +19,7 @@ const Doctors = () => {
         )
         setDoctors(data.doctors);
       } catch (error) {
-        toast.error(error.response.data.message)
+        toast.error(error.data.message)
       }
     }
     fetchDoctors();

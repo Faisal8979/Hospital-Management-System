@@ -71,7 +71,7 @@ const AddNewDoctor = () => {
       formData.append("docAvtar", docAvtar);
       // formData.append("docAvtarPreview", docAvtarPreview);
 
-       const response= await axios.post(
+       const {data}= await axios.post(
         `${APIUrl}/api/v1/user/doctor/addnew`,
          formData,
         {
@@ -79,7 +79,7 @@ const AddNewDoctor = () => {
           headers:{"Content-Type": "multipart/form-data"},
         }
       )
-        toast.success(response.data.message);
+        toast.success(data.message);
         navigate("/")
         // setEmail("");
         // setPassword("")
@@ -87,7 +87,7 @@ const AddNewDoctor = () => {
       
     } catch (error) {
       console.log(error);
-      toast.error(error.response.data.message)
+      toast.error(error.data.message)
     }
   }
 

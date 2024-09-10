@@ -20,7 +20,7 @@ const Messages = () => {
         )
         setMessages(data.messages)
       } catch (error) {
-        console.log(error.response.data.message);
+        console.log(error.data.message);
       }
     }
     fetchMessages();

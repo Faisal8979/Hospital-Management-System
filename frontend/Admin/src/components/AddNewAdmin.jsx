@@ -23,7 +23,7 @@ const AddNewAdmin = () => {
   const handleAddNewAdmin = async (e) => {
     e.preventDefault();
     try {
-       const response= await axios.post(
+       const {data}= await axios.post(
         `${APIUrl}/api/v1/user/admin/add-new`,
         { firstName, lastName, email, phone, gender, nic, dob, password },
         {
@@ -31,7 +31,7 @@ const AddNewAdmin = () => {
           headers:{"Content-Type": "application/json"},
         }
       )
-        toast.success(response.data.message);
+        toast.success(data.message);
         navigate("/")
         // setEmail("");
         // setPassword("")
@@ -39,7 +39,7 @@ const AddNewAdmin = () => {
       
     } catch (error) {
       console.log(error);
-      toast.error(error.response.data.message)
+      toast.error(error.data.message)
     }
   }
 
