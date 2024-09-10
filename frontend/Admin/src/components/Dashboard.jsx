@@ -6,7 +6,7 @@ import { GoCheckCircleFill } from "react-icons/go";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { toast } from 'react-toastify';
 
-const APIUrl = "https://hospital-management-backend-five.vercel.app/";
+const APIUrl = "https://hospital-management-backend-7n0m.onrender.com/";
 
 const Dashboard = () => {
   const { isAuthenticated, user } = useContext(Context);

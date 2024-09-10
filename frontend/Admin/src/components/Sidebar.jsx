@@ -12,7 +12,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 
 
- const APIUrl = "https://hospital-management-backend-five.vercel.app/";
+ const APIUrl = "https://hospital-management-backend-7n0m.onrender.com/";
 
 const Sidebar = () => {
     const [show, setShow] = useState(false);
