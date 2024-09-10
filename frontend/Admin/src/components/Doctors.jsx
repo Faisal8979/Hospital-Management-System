@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import axios from 'axios';
 import { Navigate } from 'react-router-dom';
 
-const APIUrl = "https://hospital-management-backend-six.vercel.app/";
+const APIUrl = "https://hospital-management-backend-five.vercel.app/";
 
 const Doctors = () => {
   const [doctors, setDoctors] = useState([]);

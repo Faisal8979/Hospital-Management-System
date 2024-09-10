@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import axios from 'axios';
 import { motion } from 'framer-motion';
 
-const APIUrl = "https://hospital-management-backend-six.vercel.app/";
+const APIUrl = "https://hospital-management-backend-five.vercel.app/";
 
 const AddNewDoctor = () => {
   const [firstName, setFirstName] = useState("");
