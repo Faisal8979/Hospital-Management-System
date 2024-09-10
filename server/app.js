@@ -35,7 +35,9 @@ app.use("/api/v1/appointment", AppointmentRouter);
 dbConnection();
 
 app.get("/", (req, res) => {
-    res.send("<h1>Hello!!</h1>")
+    res.json({
+        message:"Backend"
+    })
 })
 
 app.use(errorMiddlewere);
