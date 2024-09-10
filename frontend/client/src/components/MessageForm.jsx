@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
-const APIUrl = "https://hospital-management-backend-five.vercel.app/";
+const APIUrl = "https://hospital-management-backend-7n0m.onrender.com/";
 
 const MessageForm = () => {
 
