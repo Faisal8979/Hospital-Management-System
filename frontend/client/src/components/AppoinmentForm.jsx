@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 const APIUrl = "https://hospital-management-backend-7n0m.onrender.com/";
 
@@ -11,16 +11,17 @@ const AppoinmentForm = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [gender, setGender] = useState("");
+  // const [user, setUser] = useState([]);
   const [nic, setNic] = useState("");
   const [dob, setDob] = useState("");
   const [appointmentDate, setAppointmentDate] = useState("");
-  const [department, setDepartment] = useState("");
+  const [department, setDepartment] = useState("Pediatrics");
   const [doctorFirstName, setDoctorFirstName] = useState("");
   const [doctorLastName, setDoctorLastName] = useState("");
   const [address, setAddress] = useState("");
   const [hasVisited, setHasVisited] = useState(false);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const departmentArray = [
     "Cardiologist",
@@ -46,16 +47,14 @@ const AppoinmentForm = () => {
   useEffect(() => {
     const fetchDoctors = async () => {
       const { data } = await axios.get(`${APIUrl}/api/v1/user/doctors`,
-        {
-          withCredentials: true,
-        }
+      { withCredentials: true }
       );
       setDoctors(data.doctors);
       console.log(data.doctors);
-      
-    }
+    };
     fetchDoctors();
-  }, [])
+  }, []);
+
   const handleAppointment = async (e) => {
     e.preventDefault();
     try {
@@ -82,7 +81,19 @@ const AppoinmentForm = () => {
         },
       );
       toast.success(data.message);
-      navigate("/")
+        setFirstName(""),
+        setLastName(""),
+        setEmail(""),
+        setPhone(""),
+        setNic(""),
+        setDob(""),
+        setGender(""),
+        setAppointmentDate(""),
+        setDepartment(""),
+        setDoctorFirstName(""),
+        setDoctorLastName(""),
+        setHasVisited(""),
+        setAddress("");
     } catch (error) {
       toast.error(error.response.data.message);
       console.log(error);
@@ -96,12 +107,12 @@ const AppoinmentForm = () => {
         <h2>Appoinment</h2>
         <form onSubmit={handleAppointment}>
           <div>
-            <input
-              type='text'
-              placeholder='First Name*'
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)} 
-              />
+                <input
+                  type='text'
+                  placeholder='First Name*'
+                  value={firstName}
+                 onChange={(e) => setFirstName(e.target.value)} 
+                />
             <input
               type='text'
               placeholder='Last Name*'

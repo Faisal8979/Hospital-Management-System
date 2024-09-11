@@ -17,26 +17,21 @@ const Login = () => {
   const handleLogin = async (e) =>{
     e.preventDefault();
     try {
-       const response= await axios.post(
+      const response = await axios.post(
         `${APIUrl}/api/v1/user/login`,
         { email, password, confirmPassword, role: "Patient" },
         {
           withCredentials: true,
-          headers:{"Content-Type": "application/json"},
+          headers: { "Content-Type": "application/json" },
         }
-      )
-        toast.success(response.data.message);
-        setIsAuthenticated(true);
-        navigate("/")
-        // setEmail("");
-        // setPassword("")
-        // setConfirmPassword("");
-      
+      );
+      toast.success(response.data.message);
+      setIsAuthenticated(true);
+      navigate("/");
     } catch (error) {
-      console.log(error);
-      toast.error(error.response.data.message)
+      toast.error(error.response.data.message);
     }
-  }
+  };
   if (isAuthenticated) {
     return <Navigate to={"/"} />
   }
